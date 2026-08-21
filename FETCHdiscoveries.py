@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 
 
-URL = "https://www.livescience.com/news"
+URL = "https://livescience.com"
 
 HEADERS = {
     "User-Agent": (
