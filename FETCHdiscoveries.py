@@ -1,4 +1,4 @@
-# ...existing code...
+
 import json
 import os
 from html import unescape
@@ -63,18 +63,18 @@ def extract_from_html(html):
     print(f"HTML news blocks matched: {len(containers)}")
 
     for container in containers:
-        # Find the header element inside the article card
+        
         title_element = container.find(['h3', 'h2'])
         if not title_element:
             continue
 
         title = title_element.get_text(" ", strip=True)
 
-        # CRITICAL FILTER: Skip global navigation elements or short sidebar tags
+        # here Skip global navigation elements or short sidebar tags
         if "Recent scientific discoveries" in title or len(title) < 15:
             continue
 
-        # Extract the description synopsis paragraph
+        
         description_element = container.find(['p', 'span'], class_=lambda x: x and any(c in x for c in ['synopsis', 'description', 'excerpt']))
         description = description_element.get_text(" ", strip=True) if description_element else "Select this entry to read the full scientific breakthrough review."
 
@@ -243,4 +243,4 @@ if __name__ == "__main__":
 
     science_updates = fetch_live_science_discoveries()
     generate_pdf_report(science_updates, output_file)
-# ...existing code...
+
